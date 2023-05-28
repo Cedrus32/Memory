@@ -7,7 +7,6 @@ console.log(iconsArray);
 // methods
 function importIcons(r) {
     let queryKeys = r.keys();
-    console.log(queryKeys);
     let icons = [];
     for (let i = 0; i < queryKeys.length; i++) {
         let newKey = queryKeys[i].split('./')[1];

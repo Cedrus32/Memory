@@ -5,9 +5,8 @@ import Board from './Board';
 
 const Main = () => {
     const [scoreCur, setScoreCur] = useState(0);
-    const [scoreTop, setScoreTop] = useState(null);
+    const [scoreTop, setScoreTop] = useState(0);
     const [cards, setCards] = useState([]);
-    const [clickStatus, setClickStatus] = useState(null);
     const [clickLog, setClickLog] = useState([]);
     
     // component mount
@@ -15,20 +14,27 @@ const Main = () => {
         updateCards();
     }, [])
 
-    // state update
-    useEffect(() => {
-        console.log('finish clickCheck');
-        console.log('updateScore()');
-        console.log('updateCards() per conditional');
-    }, [clickStatus])
+    function handleClick(e) {
+        console.log(e);
+        let clickIsValid = checkClick(e);
+        if (clickIsValid) {
+            setClickLog([...clickLog, e.target.parentNode.dataset.cardKey]);
+            setScoreCur(scoreCur + 1);
+            if (scoreTop === scoreCur) {
+                setScoreTop(scoreCur + 1);
+            }
+        } else {
+            setClickLog([]);
+            setScoreCur(0);
+            updateCards();
+        }
+    }
 
     function checkClick(e) {
-        console.log(e.target.dataset.cardKey);
-        if (clickLog.includes(e.target.dataset.cardKey)) {
-            setClickStatus(false);
-        } else {
-            setClickStatus(true);
-            setClickLog([...clickLog, e.target.dataset.cardKey]);
+        if (clickLog.includes(e.target.parentNode.dataset.cardKey)) {
+            return false;
+        } else if (!clickLog.includes(e.target.parentNode.dataset.cardKey)) {
+            return true;
         }
     }
 
@@ -43,7 +49,7 @@ const Main = () => {
     return (
         <>
             <Header scoreCur={scoreCur} scoreTop={scoreTop}/>
-            <Board cardMeta={cards} checkClick={checkClick}/>
+            <Board cardMeta={cards} handleClick={handleClick}/>
         </>
     )
 }

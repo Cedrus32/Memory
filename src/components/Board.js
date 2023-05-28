@@ -4,7 +4,7 @@ import uniqid from 'uniqid';
 import Card from './Card';
 
 const Board = (props) => {
-    let {cardMeta, checkClick} = props;
+    let {cardMeta, handleClick} = props;
 
     function randomize() {
         let randomLog = [];
@@ -19,7 +19,6 @@ const Board = (props) => {
                     indexIsUnique = true;
                 }
             }
-            console.log(cardMeta[randomIndex].cardKey, cardMeta[randomIndex].imgPrefix);
             tempCards.push(<Card key={cardMeta[randomIndex].cardKey} cardKey={cardMeta[randomIndex].cardKey} imgPrefix={cardMeta[randomIndex].imgPrefix}/>)
         }
         return tempCards;
@@ -31,14 +30,14 @@ const Board = (props) => {
     }
 
     return (
-        <section id='gameboard'>
+        <section id='gameboard' onClick={handleClick}>
             {cards}
         </section>
     )
 }
 Board.propTypes = {
     cardMeta: PropTypes.array.isRequired,
-    checkClick: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
 }
 
 export default Board;
