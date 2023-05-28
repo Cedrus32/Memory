@@ -7,9 +7,13 @@ const Header = (props) => {
     return (
         <section id='header'>
             <h1>Triforce Memory</h1>
-            <div className='divider'>------------------------</div>
-            <div id='scoreCur'>Current Score: {scoreCur}</div>
-            <div id='scoreTop'>Top Score: {scoreTop}</div>
+            <div className='divider'>
+                <div className='div-line'></div>
+                <img src={'./icons/triforce.svg'}/>
+                <div className='div-line'></div>
+            </div>
+            <span id='scoreCur'>Current Score: {scoreCur}</span>
+            <span id='scoreTop'>Top Score: {scoreTop}</span>
         </section>
     )
 }

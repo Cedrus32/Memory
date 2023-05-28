@@ -1,0 +1,106 @@
+/* COLORS */
+
+body {
+    background-color: #316233;
+    color: white;
+}
+
+    .div-line {
+        background-color: #F9D849;
+    }
+
+/* DISPLAY */
+
+main {
+    display: flex;
+    flex-flow: column;
+}
+
+#header {
+    display: grid;
+}
+
+    .divider {
+        display: flex;
+    }
+
+#gameboard {
+    display: flex;
+}
+
+
+/* SIZING & POSITIONING */
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    --buff: 15vw;
+    --logo-size: 80px;
+    --card-size: 160px;
+}
+
+    main {
+        height: inherit;
+        width: inherit;
+        align-items: center;
+        justify-content: start;
+        padding: calc(var(--logo-size) / 2) 0px;
+        gap: calc(var(--logo-size) / 2);
+    }
+
+        #header {
+            grid-template-columns: var(--buff) 3fr var(--logo-size) 3fr var(--buff);
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 'title   title   title   title   title'
+                                 'divider divider divider divider divider'
+                                 '.       current .       top     .';
+        }
+
+            h1 {
+                grid-area: title;
+                padding: 0px calc(var(--logo-size) / 2);
+            }
+
+            .divider {
+                grid-area: divider;
+                align-items: center;
+            }
+
+                .div-line {
+                    height: 10px;
+                    width: 100vw;
+                }
+
+                #header img {
+                    height: var(--logo-size);
+                }
+
+            #scoreCur {
+                grid-area: current;
+                text-align: start;
+            }
+
+            #scoreTop {
+                grid-area: top;
+                text-align: end;
+            }
+
+            #scoreCur,
+            #scoreTop {
+                margin: calc(-1 * calc(var(--logo-size) / 4)) 0 0 0;
+            }
+
+        #gameboard {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: calc(var(--card-size) / 20);
+            padding: 0 var(--buff);
+        }
+
+            #gameboard div,
+            #gameboard img {
+                width: var(--card-size);
+                height: var(--card-size);
+            }
