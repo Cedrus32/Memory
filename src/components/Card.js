@@ -6,7 +6,7 @@ const Card = (props) => {
 
     return (
         <div data-card-key={cardKey}>
-            <img src={`./icons/${imgPrefix}.png`}/>
+            <img src={`../icons/${imgPrefix}.png`}/>
         </div>
 
     )

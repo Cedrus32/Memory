@@ -8,7 +8,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     output: {
-        path: path.join(__dirname, 'dist'), // join -> resolve
+        path: path.resolve(__dirname, 'dist'), // join <-> resolve
         filename: '[name].main.js',
         // clean: true,
     },
@@ -22,15 +22,12 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/i,
+               test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
-                generator: {
-                    filename: 'icons/[name][ext]'
-                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,

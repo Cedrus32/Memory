@@ -1,10 +1,9 @@
 // cache images
-let imgQuery = require.context('../assets/icons', false, /\.(png|svg|jpg|jpeg|gif)$/i);
-let iconsArray = importIcons(imgQuery);
-console.log('***** ICONS ARRAY *****');
-console.log(iconsArray);
+let imgQuery = require.context('../icons', false, /\.(png|svg|jpg|jpeg|gif)$/i);
+let icons = importIcons(imgQuery);
+console.log(icons);
 
-// methods
+// bundle images
 function importIcons(r) {
     let queryKeys = r.keys();
     let icons = [];
@@ -18,4 +17,4 @@ function importIcons(r) {
     return icons;
 }
 
-export default iconsArray;
+export default icons;

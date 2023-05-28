@@ -9,6 +9,25 @@ body {
         background-color: #F9D849;
     }
 
+/* FONTS */
+@font-face {
+    font-family: 'Triforce';
+    src: url('../fonts/Triforce.ttf') format('truetype');
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+}
+
+    h1 {
+        font-family: 'Triforce';
+        font-size: 3em;
+        letter-spacing: 0.1em;
+        text-align: center;
+    }
+
 /* DISPLAY */
 
 main {
