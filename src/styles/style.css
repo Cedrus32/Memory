@@ -21,30 +21,33 @@ body {
     letter-spacing: 0.05em;
 }
 
+    /* h1, */
+    /* .title span { */
+    /*     text-align: center; */
+    /* } */
+
     h1 {
         font-family: 'Triforce';
         font-size: 3em;
         letter-spacing: 0.1em;
-        text-align: center;
     }
 
 /* DISPLAY */
 
-main {
+main,
+.title,
+.divider,
+#gameboard {
     display: flex;
+}
+
+main,
+.title {
     flex-flow: column;
 }
 
 #header {
     display: grid;
-}
-
-    .divider {
-        display: flex;
-    }
-
-#gameboard {
-    display: flex;
 }
 
 
@@ -76,10 +79,15 @@ body {
                                  '.       current .       top     .';
         }
 
-            h1 {
+            .title {
                 grid-area: title;
-                padding: 0px calc(var(--logo-size) / 2);
+                align-items: center;
+                padding: calc(var(--logo-size) / 4) 0;
             }
+
+                h1 {
+                    margin: calc(var(--logo-size) / 4) 0; /* TODO: */
+                }
 
             .divider {
                 grid-area: divider;

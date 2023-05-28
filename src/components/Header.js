@@ -6,7 +6,10 @@ const Header = (props) => {
 
     return (
         <section id='header'>
-            <h1>Triforce Memory</h1>
+            <div className='title'>
+                <h1>Triforce Memory</h1>
+                <span>Get points by clicking on an image, but don't click on any more than once!</span>
+            </div>
             <div className='divider'>
                 <div className='div-line'></div>
                 <img src={'./icons/triforce.svg'}/>
