@@ -21,11 +21,6 @@ body {
     letter-spacing: 0.05em;
 }
 
-    /* h1, */
-    /* .title span { */
-    /*     text-align: center; */
-    /* } */
-
     h1 {
         font-family: 'Triforce';
         font-size: 3em;
@@ -49,7 +44,6 @@ main,
 #header {
     display: grid;
 }
-
 
 /* SIZING & POSITIONING */
 
@@ -86,7 +80,7 @@ body {
             }
 
                 h1 {
-                    margin: calc(var(--logo-size) / 4) 0; /* TODO: */
+                    margin: calc(var(--logo-size) / 4) 0;
                 }
 
             .divider {

@@ -16,17 +16,21 @@ const Main = () => {
 
     function handleClick(e) {
         console.log(e);
-        let clickIsValid = checkClick(e);
-        if (clickIsValid) {
-            setClickLog([...clickLog, e.target.parentNode.dataset.cardKey]);
-            setScoreCur(scoreCur + 1);
-            if (scoreTop === scoreCur) {
-                setScoreTop(scoreCur + 1);
+        if (e.target.tagName === 'IMG') {
+            console.log('image clicked');
+            let clickIsValid = checkClick(e);
+            if (clickIsValid) {
+                setClickLog([...clickLog, e.target.parentNode.dataset.cardKey]);
+                setScoreCur(scoreCur + 1);
+                if (scoreTop === scoreCur) {
+                    setScoreTop(scoreCur + 1);
+                }
+            } else {
+                setClickLog([]);
+                setScoreCur(0);
+                updateCards();
+
             }
-        } else {
-            setClickLog([]);
-            setScoreCur(0);
-            updateCards();
         }
     }
 
