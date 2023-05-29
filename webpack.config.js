@@ -10,8 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].main.js',
-
-        // clean: true,
+        clean: true,
     },
     module: {
         rules: [
