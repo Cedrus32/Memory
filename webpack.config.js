@@ -8,8 +8,9 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, 'dist'), // join <-> resolve
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].main.js',
+
         // clean: true,
     },
     module: {
@@ -28,10 +29,16 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'icons/[name][ext]'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]'
+                }
             },
         ],
     },
